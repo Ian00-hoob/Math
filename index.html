@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Learning - Belajar Matematika</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f3f5ff;
+  color: #25264a;
+}
+
+header {
+  background: #5146d8;
+  color: white;
+  padding: 25px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+}
+
+.hero {
+  padding: 75px 8%;
+  text-align: center;
+  background: linear-gradient(135deg,#5146d8,#8277f5);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  line-height: 1.7;
+}
+
+button {
+  background: #ffcf5c;
+  color: #25264a;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 45px 8%;
+}
+
+.container h2 {
+  margin-bottom: 25px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px #00000010;
+}
+
+.card h3 {
+  color: #5146d8;
+  margin-bottom: 12px;
+}
+
+.card p {
+  line-height: 1.6;
+}
+
+.card button {
+  background: #5146d8;
+  color: white;
+}
+
+.quiz {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+footer {
+  background: #25264a;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>📘 Math Learning</h2>
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#materi">Materi</a>
+    <a href="#kuis">Kuis</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Selamat Datang di Math Learning!</h1>
+  <p>Belajar matematika menjadi lebih mudah,
+  menyenangkan, dan interaktif.</p>
+  <button onclick="location.href='#materi'">
+    Mulai Belajar
+  </button>
+</section>
+
+<section class="container" id="materi">
+  <h2>📚 Materi Matematika</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Aljabar</h3>
+      <p>Mempelajari variabel, bentuk aljabar,
+      dan operasi hitung aljabar.</p>
+      <button onclick="showMaterial('Aljabar')">Pelajari</button>
+    </div>
+
+    <div class="card">
+      <h3>Peluang</h3>
+      <p>Mempelajari kemungkinan terjadinya
+      suatu peristiwa.</p>
+      <button onclick="showMaterial('Peluang')">Pelajari</button>
+    </div>
+
+    <div class="card">
+      <h3>Statistika</h3>
+      <p>Mempelajari mean, median, modus,
+      dan penyajian data.</p>
+      <button onclick="showMaterial('Statistika')">Pelajari</button>
+    </div>
+
+    <div class="card">
+      <h3>Geometri</h3>
+      <p>Mempelajari bangun datar, bangun ruang,
+      luas, dan volume.</p>
+      <button onclick="showMaterial('Geometri')">Pelajari</button>
+    </div>
+  </div>
+
+  <div id="materiDetail" class="card" style="display:none;margin-top:20px">
+    <h3 id="judulMateri"></h3>
+    <p id="isiMateri"></p>
+  </div>
+</section>
+
+<section class="container" id="kuis">
+  <h2>📝 Latihan Soal</h2>
+
+  <div class="quiz">
+    <h3>Berapakah hasil dari 5 × 8?</h3>
+    <br>
+    <button onclick="checkAnswer(40)">40</button>
+    <button onclick="checkAnswer(35)">35</button>
+    <button onclick="checkAnswer(45)">45</button>
+    <p id="hasil"></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Math Learning | Belajar Matematika</p>
+</footer>
+
+<script>
+function showMaterial(materi) {
+  const data = {
+    Aljabar: "Aljabar adalah cabang matematika yang menggunakan huruf sebagai simbol bilangan. Contoh: 2x + 3 = 7, maka x = 2.",
+    Peluang: "Peluang adalah ukuran kemungkinan suatu kejadian. Rumus: P(A) = n(A) / n(S).",
+    Statistika: "Mean adalah rata-rata, median adalah nilai tengah, dan modus adalah nilai yang paling sering muncul.",
+    Geometri: "Geometri mempelajari bentuk, ukuran, luas, keliling, dan volume bangun."
+  };
+
+  document.getElementById("judulMateri").innerText = materi;
+  document.getElementById("isiMateri").innerText = data[materi];
+  document.getElementById("materiDetail").style.display = "block";
+}
+
+function checkAnswer(jawaban) {
+  const hasil = document.getElementById("hasil");
+
+  if (jawaban === 40) {
+    hasil.innerText = "Benar! Hebat! 🎉";
+  } else {
+    hasil.innerText = "Belum tepat. Coba lagi!";
+  }
+}
+</script>
+
+</body>
+</html>
